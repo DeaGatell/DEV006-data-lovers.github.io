@@ -3,12 +3,11 @@ body {
   margin: 0;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
-
-
-
 }
 
+body{
+  height: 100%;
+}
 
 /* Header*/
 
@@ -23,7 +22,7 @@ li {
   text-decoration: none;
 }
 
-/*esto es para que los a href que esten subrayados ya no lo esten*/
+/*Quitar subrayado de: a href*/
 a:link,
 a:visited {
   text-decoration: none;
@@ -40,28 +39,18 @@ button {
   padding: 10px;
   text-align: right;
   margin-right: 15px;
-
-
-
   display: inline-block;
-
-
 }
 
 .navegacionHeader {
   display: flex;
   justify-content: space-between;
-
   min-height: 70px;
-  /*esto cambia la altura del header pero se queda en 50px*/
+  /*Altura de Header*/
   background-color: #2D1440;
   align-items: center;
   padding: 5px;
-
 }
-
-
-
 
 .rickAndMortyLogo img {
   height: 70px;
@@ -71,9 +60,7 @@ button {
 .iconosheader {
   width: 13px;
   height: 13px;
-
 }
-
 
 @media (max-width:700px) {
   .navegacionHeader {
@@ -85,23 +72,18 @@ button {
   }
 }
 
-
 .navegacionGlobal {
   font-family: sans-serif;
   background-color: #2D1440;
   width: 100px;
   height: 100vh;
-
 }
-
 
 .navegacionGlobalA {
   display: block;
   text-align: center;
   padding: 0px;
 }
-
-
 
 #iconopersonaje img,
 #iconoespecies img,
@@ -112,11 +94,9 @@ button {
   height: 70px;
   padding-bottom: 3px;
   padding-top: 20px;
-
-
 }
 
-/*SUBMENU PERSONAJES*/
+/*SUBMENÚ PERSONAJES*/
 
 .navegacionGlobalA ul {
   width: 200px;
@@ -151,7 +131,6 @@ button {
   position: absolute;
   right: 0px;
   left: 20px;
-
 }*/
 
 .navegacionGlobalA ul li a {
@@ -165,7 +144,6 @@ button {
   text-transform: uppercase;
   transition: all 300ms ease;
   text-align: center;
-
 }
 
 .navegacionGlobalA ul li a:hover {
@@ -176,27 +154,24 @@ button {
   padding-left: 14px;
   font-size: 16px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-
 }
 
 label {
   font-size: 10px;
   color: #ffff;
-
 }
 
+/*CUADRO DE TEXTO LANDING*/
 
 .contenedorTexto {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #7B2E73;
   padding: 10px;
   opacity: 80%;
   border-radius: 10px;
-
-
 }
 
 .contenedorTexto p {
@@ -205,4 +180,5 @@ label {
   color: #ffff;
   text-align: justify;
   font-weight: bold;
+  line-height: 30px;
 }
