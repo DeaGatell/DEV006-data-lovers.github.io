@@ -1,6 +1,6 @@
 export const navHeader = `<header>
 <div class="navegacionHeader">
- <a href="#" class="rickAndMortyLogo">
+ <a href="index.html" class="rickAndMortyLogo">
    <sgv>
      <img src="../imagenes/rickandmortylogo.png">
    </sgv>
@@ -8,9 +8,9 @@ export const navHeader = `<header>
  <nav class="navegacionHeader">
    <ul class="ulnavegacionHeader">
 
-     <li><button><img class="iconosheader" src="../imagenes/busquedadelupa.png"> EXPLORE</button></li>
-     <li><button><img class="iconosheader" src="../imagenes/llaveiniciarsesion.png"> LOG IN</button></li>
-     <li><button><img class="iconosheader" src="../imagenes/registrarse.png"> SIGN IN</button></li>
+     <li><button class="botonesheader"><img class="iconosheader" src="../imagenes/busquedadelupa.png"> EXPLORE</button></li>
+     <li><button class="botonesheader"><img class="iconosheader" src="../imagenes/llaveiniciarsesion.png"> LOG IN</button></li>
+     <li><button class="botonesheader"><img class="iconosheader" src="../imagenes/registrarse.png"> SIGN IN</button></li>
 
    </ul>
  </nav>
