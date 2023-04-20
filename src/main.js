@@ -26,17 +26,86 @@ const contenedor = document.querySelector('#root2')
 // eslint-disable-next-line no-console
 console.log(contenedor);
 data.results.forEach(element => {
-  //Importar nombre
+
   const containerpersonaje = document.createElement('div')
-  //Importar imágenes
   const imagen = document.createElement('img')
   const nombre = document.createElement('p')
+  //const ventanaModal = document.querySelector('#root3')
+
+  containerpersonaje.addEventListener('click', () => {
+    //ventanaModal.style.visibility= 'visible'
+    abrirModal(element) 
+  })
 
   imagen.src = element.image
   nombre.textContent = element.name
 
-  containerpersonaje.appendChild(imagen)
-  containerpersonaje.appendChild(nombre)
+  containerpersonaje.setAttribute("class", "containerPersonaje")
+  imagen.setAttribute("class", "imagenPersonaje")
+  nombre.setAttribute("class", "nombrePersonaje")
+
 
   contenedor.appendChild(containerpersonaje)
+  containerpersonaje.appendChild(imagen)
+  containerpersonaje.appendChild(nombre)
 });
+
+// Ventana Modal
+
+function abrirModal(personaje) {
+
+  const ventanaModal = document.querySelector('#root3')
+  iconoCerrado.addEventListener('click', () => {
+    ventanaModal.innerHTML = ''
+  })
+
+
+
+  const contenedorVentanaModal = document.createElement('div')
+  const iconoCerrado = document.createElement('img')
+  const imagenVentanaModal = document.createElement('img')
+  const nombreVentanaModal = document.createElement('h1')
+  const statusVentanaModal = document.createElement('h2')
+  const speciesVentanaModal = document.createElement('h2')
+  const typeVentanaModal = document.createElement('h2')
+  const genderVentanaModal = document.createElement('h2')
+  const originVentanaModal = document.createElement('h2')
+  const locationVentanaModal = document.createElement('h2')
+  const episodesVentanaModal = document.createElement('h2')
+
+  iconoCerrado.src = "../imagenes/iconocerrarventanamodal.png"
+  imagenVentanaModal.src = personaje.image
+  nombreVentanaModal.textContent = personaje.name
+  statusVentanaModal.textContent = personaje.status
+  speciesVentanaModal.textContent = personaje.species
+  typeVentanaModal.textContent = personaje.type
+  genderVentanaModal.textContent = personaje.gender
+  originVentanaModal.textContent = personaje.origin.name
+  locationVentanaModal.textContent = personaje.location.name
+  episodesVentanaModal.length = personaje.episode
+
+  ventanaModal.setAttribute("class", "ventanaModal")
+  iconoCerrado.setAttribute("class", "iconoCerrarVM")
+  contenedorVentanaModal.setAttribute("class", "contenedorVentanaModal active")
+  imagenVentanaModal.setAttribute("class", "imagenVentanaModal")
+  nombreVentanaModal.setAttribute("class", "nombreVentanaModal")
+  statusVentanaModal.setAttribute("class", "datosVentanaModal")
+  speciesVentanaModal.setAttribute("class", "datosVentanaModal")
+  typeVentanaModal.setAttribute("class", "datosVentanaModal")
+  genderVentanaModal.setAttribute("class", "datosVentanaModal")
+  originVentanaModal.setAttribute("class", "datosVentanaModal")
+  locationVentanaModal.setAttribute("class", "datosVentanaModal")
+  episodesVentanaModal.setAttribute("class", "datosVentanaModal")
+
+  ventanaModal.appendChild(contenedorVentanaModal)
+  contenedorVentanaModal.appendChild(iconoCerrado)
+  contenedorVentanaModal.appendChild(imagenVentanaModal)
+  contenedorVentanaModal.appendChild(nombreVentanaModal)
+  contenedorVentanaModal.appendChild(statusVentanaModal)
+  contenedorVentanaModal.appendChild(speciesVentanaModal)
+  contenedorVentanaModal.appendChild(typeVentanaModal)
+  contenedorVentanaModal.appendChild(genderVentanaModal)
+  contenedorVentanaModal.appendChild(originVentanaModal)
+  contenedorVentanaModal.appendChild(locationVentanaModal)
+  contenedorVentanaModal.appendChild(episodesVentanaModal)
+}
