@@ -235,11 +235,11 @@ label {
   margin: 0 auto;
 }
 
-#root2 div {
+.containerPersonaje {
   display: grid;
 }
 
-#root2 p {
+.nombrePersonaje {
   font-family: sans-serif;
   font-size: 16px;
   color: #ffff;
@@ -251,11 +251,11 @@ label {
   background: #7B2E73;
 }
 
-#root2 p:hover {
+.nombrePersonaje:hover {
   background: #A3A3CD;
 }
 
-#root2 img {
+.imagenPersonaje {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
@@ -269,7 +269,7 @@ label {
 
 /*SUBMENU FILTRADO*/
 
-.botonfiltrado > ul {
+.botonfiltrado>ul {
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -286,13 +286,13 @@ label {
   transition: all 400ms ease;
 }
 
-.botonfiltrado:hover > ul {
+.botonfiltrado:hover>ul {
   visibility: visible;
   opacity: 100%;
   top: 180px;
 }
 
-.botonfiltrado > ul li a {
+.botonfiltrado>ul li a {
   display: block;
   color: #ffff;
   padding: 6px;
@@ -304,7 +304,7 @@ label {
   text-align: center;
 }
 
-.botonfiltrado > ul li a:hover {
+.botonfiltrado>ul li a:hover {
   background: #A3A3CD;
   border-radius: 10px;
   color: #2D1440;
@@ -332,13 +332,14 @@ label {
   z-index: 10;
   transition: all 300ms ease;
 }
-.gender:hover ul{
+
+.gender:hover ul {
   visibility: visible;
   opacity: 100%;
   top: 130px;
 }
 
-.gender ul li button {
+.gender ul li a {
   display: block;
   color: #ffff;
   padding: 6px;
@@ -350,7 +351,7 @@ label {
   text-align: center;
 }
 
-.gender ul li button:hover {
+.gender ul li a:hover {
   background: #A3A3CD;
   border-radius: 10px;
   color: #2D1440;
@@ -406,3 +407,62 @@ label {
   font-size: 16px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
+
+/*VENTANA MODAL*/
+
+#root3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+#root3 .contenedorVentanaModal {
+  display: none;
+  padding: 2rem;
+  text-align: center;
+  font-size: 10px;
+  background: #ffff;
+  position: relative;
+  margin: 2rem;
+  width: 40rem;
+}
+
+#root3 .contenedorVentanaModal.active {
+  display: inline-block;
+}
+
+#root3 .contenedorVentanaModal .imagenVentanaModal {
+  height: 20rem;
+}
+
+.iconoCerrarVM {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.iconoCerrarVM:hover {
+ transform: rotate(90deg);
+}
+
+.nombreVentanaModal {
+  padding: 1 rem 0;
+  font: 2.5 rem;
+  color:#2D1440;
+}
+
+.datosVentanaModal{
+ font-size: 1.7 rem;
+ color:#7B2E73;
+}
+
