@@ -26,9 +26,9 @@ const contenedor = document.querySelector('#root2')
 // eslint-disable-next-line no-console
 console.log(contenedor);
 data.results.forEach(element => {
-  //Importar nombre
+
   const containerpersonaje = document.createElement('div')
-  //Importar imágenes
+
   const imagen = document.createElement('img')
   const nombre = document.createElement('p')
 
