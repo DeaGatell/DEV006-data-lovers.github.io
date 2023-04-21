@@ -1,11 +1,11 @@
 export const navHeader = `<header>
-<div class="navegacionHeader">
+<div class="divnavegacionHeader">
  <a href="index.html" class="rickAndMortyLogo">
    <sgv>
      <img src="../imagenes/rickandmortylogo.png">
    </sgv>
  </a>
- <nav class="navegacionHeader">
+ <nav class="navnavegacionHeader">
    <ul class="ulnavegacionHeader">
 
      <li><button class="botonesheader"><img class="iconosheader" src="../imagenes/busquedadelupa.png"> EXPLORE</button></li>
