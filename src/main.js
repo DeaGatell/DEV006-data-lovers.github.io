@@ -5,7 +5,7 @@ import { navHeader, sideBar } from './contents.js';
 // eslint-disable-next-line no-console
 console.log(data);
 
-// Navegadores (header y sidebar)
+// NAVEGADORES (HEADER y SIDEBAR)
 const navcontainer = document.createElement('div');
 const maincontainer = document.createElement('div');
 const barralateral = document.querySelector('.barralateral');
@@ -17,11 +17,11 @@ maincontainer.innerHTML = sideBar;
 barrasuperior.appendChild(navcontainer);
 barralateral.appendChild(maincontainer);
 
-//Botones de filtrado y ordenado
+//BOTONES DE FILTRADO Y ORDENADO
 
 
 
-// Personajes
+// PERSONAJES
 const contenedor = document.querySelector('#root2')
 // eslint-disable-next-line no-console
 console.log(contenedor);
@@ -30,11 +30,10 @@ data.results.forEach(element => {
   const containerpersonaje = document.createElement('div')
   const imagen = document.createElement('img')
   const nombre = document.createElement('p')
-  //const ventanaModal = document.querySelector('#root3')
 
   containerpersonaje.addEventListener('click', () => {
-    //ventanaModal.style.visibility= 'visible'
-    abrirModal(element) 
+
+    abrirModal(element)
   })
 
   imagen.src = element.image
@@ -50,16 +49,19 @@ data.results.forEach(element => {
   containerpersonaje.appendChild(nombre)
 });
 
-// Ventana Modal
+const ventanaModal = document.querySelector('#root3')
+ventanaModal.addEventListener("click",() => {
+  ventanaModal.style.display = 'none'
+  limpiarVentanaModal()
+});
+ 
+// VENTANA MODAL
 
 function abrirModal(personaje) {
 
   const ventanaModal = document.querySelector('#root3')
-  iconoCerrado.addEventListener('click', () => {
-    ventanaModal.innerHTML = ''
-  })
-
-
+  ventanaModal.style.display = 'flex'
+  limpiarVentanaModal()
 
   const contenedorVentanaModal = document.createElement('div')
   const iconoCerrado = document.createElement('img')
@@ -108,4 +110,14 @@ function abrirModal(personaje) {
   contenedorVentanaModal.appendChild(originVentanaModal)
   contenedorVentanaModal.appendChild(locationVentanaModal)
   contenedorVentanaModal.appendChild(episodesVentanaModal)
+
+  iconoCerrado.addEventListener('click',() => {
+    limpiarVentanaModal()
+  })
+}
+
+function limpiarVentanaModal (){
+  const ventanaModal = document.querySelector('#root3')
+
+  ventanaModal.innerHTML = ''
 }
