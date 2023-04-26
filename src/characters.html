@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body id="characterspage" style="background-image: url('../imagenes/fondodepantallasecundario.jpg');">
+<body id="characterspage">
     <div class="barrasuperior"></div>
     <div class="contenidocharacters">
         <div class="barralateral"></div>
@@ -17,12 +18,12 @@
                 <p>Characters</p>
                 <div class="botones">
                     <nav class="botonfiltrado">
-                        <div id="iconoFiltrado">
+                        <div class="imagenfiltrado">
 
                             <img src="../imagenes/iconofiltrado.png">
 
                         </div>
-                        <label>FILTER BY </label>
+                        <label class="labelbotonfiltradoordenado">FILTER BY </label>
                         <ul>
                             <li><a href="#">NAME</a></li>
                             <li><a href="#">STATUS</a></li>
@@ -33,17 +34,17 @@
                                     <li><a id="male">MALE</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">ORIGIN</a></li>
+                            <li id="origin" class="origin"><a href="#">ORIGIN</a></li>
                         </ul>
                     </nav>
 
                     <nav class="botonordenar">
-                        <div id="iconoOrdenar">
+                        <div class="imagenordenado">
 
-                            <img src="../imagenes/ordenar.png">
+                            <img class="iconoordenado" src="../imagenes/ordenar.png">
 
                         </div>
-                        <label>SORT BY </label>
+                        <label class="labelbotonfiltradoordenado">SORT BY </label>
                         <ul>
                             <li><a id="aZ">A - Z</a></li>
                             <li><a id="zA">Z - A</a></li>
@@ -56,7 +57,7 @@
 
             </div>
             <div id="root3">
-                
+
             </div>
         </div>
 
