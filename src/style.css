@@ -1,26 +1,45 @@
-/*main{
-  margin-top: 100px;
-  margin-left: 150px;
-}*/
-
+/*GENERAL*/
 body {
   font-family: sans-serif;
   margin: 0;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 
 body {
   height: 100%;
 }
 
-/* Header*/
-.contenidocharacters {
-  display: flex;
+/*QUITARLE SUBRAYADO AL HREF*/
+/*Quitar subrayado de: a href*/
+a:link,
+a:visited {
+  text-decoration: none;
 }
 
-.barralateral {
+/*ESTO QUITA EL PUNTITO QUE VIENE EN EL LI*/
+li {
+  list-style: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+
+
+
+/*CODIGO RECICLADO*/
+
+/*HEADER*/
+.divnavegacionHeader {
   display: flex;
+  position: fixed;
+  justify-content: space-between;
+  min-height: 70px;
+  /*Altura de Header*/
+  background-color: #2D1440;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  z-index: 40;
 }
 
 .rickAndMortyLogo {
@@ -28,18 +47,14 @@ body {
   color: #2D1440;
 }
 
-li {
-  list-style: none;
-  display: inline-block;
-  text-decoration: none;
+.rickAndMortyLogo img {
+  height: 70px;
+  margin-left: 50px;
 }
 
-/*Quitar subrayado de: a href*/
-a:link,
-a:visited {
-  text-decoration: none;
+.ulnavegacionHeader {
+  padding: 10px 0px;
 }
-
 
 .botonesheader {
   text-decoration: none;
@@ -54,74 +69,46 @@ a:visited {
   display: inline-block;
 }
 
-.divnavegacionHeader {
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  min-height: 70px;
-  /*Altura de Header*/
-  background-color: #2D1440;
-  align-items: center;
-  padding: 5px;
-  width: 100%;
-}
-
-.rickAndMortyLogo img {
-  height: 70px;
-  margin-left: 50px;
-}
-
 .iconosheader {
   width: 13px;
   height: 13px;
 }
 
-@media (max-width:750px) {
-  .navegacionHeader {
-    flex-direction: column;
-  }
+/*SIDEBAR*/
 
-  .ulnavegacionHeader {
-    padding: 10px 0px;
-  }
-
-  #root2 {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #root2 p {
-    display: flex;
-    align-items: center;
-  }
-}
-
-@media (max-width:540px) {
-  #root2 {
-    width: 90%;
-    grid-template-columns: 1fr;
-  }
-
-  #root2 p {
-    display: flex;
-    align-items: center;
-  }
-}
-
+/*FONDO DE SIDEBAR - EL CUADRADO QUE ALBERGA TODO*/
 .navegacionGlobal {
+  /*position: fixed;
+  font-family: sans-serif;
+  background-color: #2D1440;
+  width: 100px;
+  /*height: 100vh;*/
+  /*height: 100%;
+  margin-top: 100px;
+  align-items: justify;*/
+
   position: fixed;
   font-family: sans-serif;
   background-color: #2D1440;
   width: 100px;
-  *height: 100vh;
   height: 100%;
-  margin-top: 70px;
+  align-items: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 30;
 }
 
 .navegacionGlobalA {
   display: block;
+  /*-webkit-boxpack: justify;*/
+
+
   text-align: center;
   padding: 0px;
 }
+
+/*ICONOS DE SIDEBAR*/
 
 #iconopersonaje img,
 #iconoespecies img,
@@ -134,7 +121,7 @@ a:visited {
   padding-top: 10px;
 }
 
-/*SUBMENÚ PERSONAJES*/
+/*SUBMENÚ PERSONAJES DE SIDEBAR*/
 
 .navegacionGlobalA ul {
   width: 200px;
@@ -145,7 +132,7 @@ a:visited {
   position: absolute;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   left: 120px;
-  top: -5px;
+  top: 180px;
   padding: 14px 0px;
   visibility: hidden;
   opacity: 80%;
@@ -156,7 +143,7 @@ a:visited {
 .navegacionGlobalA:hover ul {
   visibility: visible;
   opacity: 100%;
-  top: 105px;
+  top: 200px;
 }
 
 .navegacionGlobalA ul li a {
@@ -182,9 +169,25 @@ a:visited {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+/*NOMBRE DEBAJO DE LOS ICONOS DEL SIDEBAR*/
 label {
-  font-size: 10px;
+  font-size: 12px;
   color: #ffff;
+}
+
+/*NO SE QUE HACE QUE HACE ESTO DE MOMENTO*/
+.barralateral {
+  display: flex;
+}
+
+
+/*INDEX  HTML*/
+
+/* MAIN DE INDEX DONDE PUSIMOS EL FONDO Y TAMBIEN CONTIENE EL CUADRO DE TEXTO*/
+.mainindex {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./imagenes/fondodepantallaprincipal.jpg");
 }
 
 /*CUADRO DE TEXTO LANDING*/
@@ -209,14 +212,33 @@ label {
   line-height: 30px;
 }
 
+
 /*CHARACTERS HTML*/
+
+/*CONTENIDO CHARACTERS ALBERGA SIDEBAR(BARRALATERAL) Y CONTAINER(MENUFILTRADOYTITULO, ROOT2, ROOT3)*/
+.contenidocharacters {
+  display: flex;
+}
+
+.container {
+  background-image: url('./imagenes/fondoprueba.png');
+  background-color: rgba(20, 157, 130, 0.7);
+  background-size: contain;
+  width: 100%;
+  position: flex;
+  margin-left: 100px;
+
+}
+
 .menufiltradoytitulo {
   display: flex;
-  margin: 0 auto;
+  /* margin: auto; */
   width: 80%;
   gap: 20px 20px;
   align-items: center;
   justify-content: space-between;
+  margin-left: 150px;
+  margin-top: 100px;
 }
 
 .menufiltradoytitulo p {
@@ -225,6 +247,9 @@ label {
   color: #2D1440;
   text-align: left;
   font-weight: bold;
+  background-color: #A3A3CD;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 .botones {
@@ -234,54 +259,37 @@ label {
   gap: 20px 20px;
   align-items: center;
   justify-content: right;
+  /* margin-top: 120px; */
+  padding: 10px;
+  padding-bottom: 20px;
 }
 
-#root2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 30px 30px;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.containerPersonaje {
-  display: grid;
-}
-
-.nombrePersonaje {
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #ffff;
-  padding: 1rem;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #7B2E73;
-}
-
-.nombrePersonaje:hover {
-  background: #A3A3CD;
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.imagenPersonaje {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
-.imagenPersonaje:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
+/*BOTONES*/
 /*BOTÓN FILTRADO*/
-.flechafiltrado {
-  width: 13px;
-  height: 13px;
+
+.botonfiltrado {
+  display: grid;
+}
+
+.imagenfiltrado {
+  background-color: #A3A3CD;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.imagenfiltrado img {
+  width: 50px;
+  height: 50px;
+  align-items: center;
+}
+
+.labelbotonfiltradoordenado {
+  font-size: 15px;
+  color: #2D1440;
+  background-color: #A3A3CD;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 /*SUBMENU FILTRADO*/
@@ -294,8 +302,8 @@ label {
   border-radius: 10px;
   position: absolute;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  right: 315px;
-  top: 175px;
+  right: 220px;
+  top: 225px;
   padding: 14px 0px;
   visibility: hidden;
   opacity: 80%;
@@ -378,6 +386,23 @@ label {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+/*BOTON ORDENADO*/
+.botonordenar {
+  display: grid;
+}
+
+.imagenordenado {
+  background-color: #A3A3CD;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.imagenordenado img {
+  width: 50px;
+  height: 50px;
+  align-items: center;
+}
+
 /*SUBMENU ORDENAR*/
 
 .botonordenar ul {
@@ -388,8 +413,8 @@ label {
   border-radius: 10px;
   position: absolute;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  right: 100px;
-  top: 175px;
+  right: 120px;
+  top: 225px;
   padding: 14px 0px;
   visibility: hidden;
   opacity: 80%;
@@ -425,8 +450,51 @@ label {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-/*VENTANA MODAL*/
+/*ROOT 2*/
+#root2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 30px 30px;
+  width: 80%;
+  margin: 0 auto;
+}
 
+.containerPersonaje {
+  display: grid;
+}
+
+.imagenPersonaje {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.imagenPersonaje:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  *z-index: 2;
+}
+
+.nombrePersonaje {
+  font-family: sans-serif;
+  font-size: 22px;
+  color: #ffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #7B2E73;
+}
+
+.nombrePersonaje:hover {
+  background: #A3A3CD;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/*ROOT 3 - CONTIENE VENTANA MODAL*/
 #root3 {
   position: fixed;
   top: 0;
@@ -439,6 +507,7 @@ label {
   justify-content: center;
 }
 
+/*VENTANA MODAL*/
 #root3 .contenedorVentanaModal {
   display: flex;
   position: fixed;
@@ -452,11 +521,7 @@ label {
   margin: 2rem;
   width: 40rem;
   border-radius: 1rem;
-}
-
-#root3 .contenedorVentanaModal .imagenVentanaModal {
-  height: 20rem;
-  border-radius: 1rem;
+  *z-index: 100;
 }
 
 .iconoCerrarVM {
@@ -469,18 +534,868 @@ label {
 }
 
 .iconoCerrarVM:hover {
- transform: rotate(90deg);
- transform: scale(1.1);
- transition: transform 0.3s ease-in-out;
+  transform: rotate(90deg);
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+#root3 .contenedorVentanaModal .imagenVentanaModal {
+  height: 20rem;
+  border-radius: 1rem;
 }
 
 .nombreVentanaModal {
   padding: 1 rem 0;
   font: 2.5 rem;
-  color:#2D1440;
+  color: #2D1440;
 }
 
-.datosVentanaModal{
- font-size: 1.7 rem;
- color:#7B2E73;
+h2 {
+  display: block;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #7B2E73;
+}
+
+.contenedorVentanaModal div {
+  display: block;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #7B2E73;
+}
+
+.calculoVentanaModal {
+  font-size: 3 rem;
+  color: #7B2E73;
+}
+
+
+/*TABLET*/
+@media (max-width:821px) {
+
+  /*HEADER*/
+  .divnavegacionHeader {
+    flex-direction: column;
+    position: fixed;
+    justify-content: space-between;
+    min-height: 50px;
+    /*Altura de Header*/
+    background-color: #2D1440;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    z-index: 40;
+  }
+
+  .navegacionHeader {
+    flex-direction: column;
+  }
+
+  .rickAndMortyLogo img {
+    height: 55px;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .ulnavegacionHeader {
+    padding: 0px 0px;
+  }
+
+  .botonesheader {
+    text-decoration: none;
+    color: #2D1440;
+    background-color: #A3A3CD;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 5px;
+    text-align: right;
+    margin-right: 15px;
+    display: inline-block;
+  }
+
+  .iconosheader {
+    width: 10px;
+    height: 10px;
+  }
+
+  /*SIDEBAR*/
+  .navegacionGlobal {
+    position: fixed;
+    font-family: sans-serif;
+    background-color: #2D1440;
+    width: 100%;
+    height: 100px;
+    margin-top: 137px;
+    align-items: justify;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 30;
+  }
+
+  #iconopersonaje img,
+  #iconoespecies img,
+  #iconoepisodios img,
+  #iconodimensiones img,
+  #iconoobjetos img {
+    width: 60px;
+    height: 60px;
+    padding-bottom: 0px;
+    padding-top: 5;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  label {
+    font-size: 12px;
+    color: #ffff;
+  }
+
+  /*SUBMENÚ PERSONAJES DE SIDEBAR*/
+
+  .navegacionGlobalA ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    left: 10px;
+    top: 90px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .navegacionGlobalA:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 100px;
+  }
+
+  .navegacionGlobalA ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    /*esto antes era margin top pero el "TODOS" quedaba muy abajo y era 10px*/
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 400ms ease;
+    text-align: center;
+  }
+
+  .navegacionGlobalA ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+
+
+  /*CHARACTERS HTML*/
+  #root2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #root2 p {
+    display: flex;
+    align-items: center;
+  }
+
+  .contenidocharacters {
+    display: flex;
+  }
+
+
+  .container {
+    background-image: url('./imagenes/fondoprueba.png');
+    background-color: rgba(20, 157, 130, 0.7);
+    background-size: contain;
+    width: 100%;
+    position: flex;
+    margin-left: 0px;
+  }
+
+  .menufiltradoytitulo {
+    display: flex;
+    /* margin: auto; */
+    width: 80%;
+    gap: 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 240px;
+  }
+
+  .menufiltradoytitulo p {
+    font-family: sans-serif;
+    font-size: 35px;
+    color: #2D1440;
+    text-align: left;
+    font-weight: bold;
+    background-color: #A3A3CD;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .botones {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    gap: 20px 20px;
+    align-items: center;
+    justify-content: right;
+    /* margin-top: 120px; */
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+
+  /*BOTONES*/
+  /*BOTÓN FILTRADO*/
+
+  .botonfiltrado {
+    display: grid;
+  }
+
+  .imagenfiltrado {
+    background-color: #A3A3CD;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .imagenfiltrado img {
+    width: 50px;
+    height: 50px;
+    align-items: center;
+  }
+
+  .labelbotonfiltradoordenado {
+    font-size: 15px;
+    color: #2D1440;
+    background-color: #A3A3CD;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  /*SUBMENU FILTRADO*/
+
+  .botonfiltrado>ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 185px;
+    top: 365px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 400ms ease;
+  }
+
+  .botonfiltrado:hover>ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 370px;
+  }
+
+  .botonfiltrado>ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 400ms ease;
+    text-align: center;
+  }
+
+  .botonfiltrado>ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  /*SUB SUBMENU GENDER*/
+
+  .gender ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 205px;
+    top: 125px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .gender:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 130px;
+  }
+
+  .gender ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    text-align: center;
+  }
+
+  .gender ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  /*BOTON ORDENADO*/
+  .botonordenar {
+    display: grid;
+  }
+
+  .imagenordenado {
+    background-color: #A3A3CD;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .imagenordenado img {
+    width: 50px;
+    height: 50px;
+    align-items: center;
+  }
+
+  /*SUBMENU ORDENAR*/
+
+  .botonordenar ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 80px;
+    top: 365px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .botonordenar:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 370px;
+  }
+
+  .botonordenar ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    text-align: center;
+  }
+
+  .botonordenar ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+
+
+}
+
+
+
+
+/*TELEFONO*/
+@media (max-width:412px) {
+
+  /*HEADER*/
+  .divnavegacionHeader {
+    flex-direction: column;
+    position: fixed;
+    justify-content: space-between;
+    min-height: 50px;
+    /*Altura de Header*/
+    background-color: #2D1440;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    z-index: 40;
+  }
+
+  .navegacionHeader {
+    flex-direction: column;
+  }
+
+  .rickAndMortyLogo img {
+    height: 55px;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .ulnavegacionHeader {
+    padding: 0px 0px;
+  }
+
+  .botonesheader {
+    text-decoration: none;
+    color: #2D1440;
+    background-color: #A3A3CD;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 5px;
+    text-align: right;
+    margin-right: 15px;
+    display: inline-block;
+  }
+
+  .iconosheader {
+    width: 10px;
+    height: 10px;
+  }
+
+  /*SIDEBAR*/
+  .navegacionGlobal {
+    position: fixed;
+    font-family: sans-serif;
+    background-color: #2D1440;
+    width: 100%;
+    height: 70px;
+    margin-top: 137px;
+    align-items: justify;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 30;
+  }
+
+  #iconopersonaje img,
+  #iconoespecies img,
+  #iconoepisodios img,
+  #iconodimensiones img,
+  #iconoobjetos img {
+    width: 30px;
+    height: 30px;
+    padding-bottom: 0px;
+    padding-top: 5;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  label {
+    font-size: 10px;
+    color: #ffff;
+  }
+
+  /*SUBMENÚ PERSONAJES DE SIDEBAR*/
+
+  .navegacionGlobalA ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    left: 10px;
+    top: 60px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .navegacionGlobalA:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 67px;
+  }
+
+  .navegacionGlobalA ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    /*esto antes era margin top pero el "TODOS" quedaba muy abajo y era 10px*/
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 400ms ease;
+    text-align: center;
+  }
+
+  .navegacionGlobalA ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+
+
+
+  /*CHARACTERS HTML*/
+  #root2 {
+    width: 80%;
+    grid-template-columns: 1fr;
+  }
+
+  #root2 p {
+    display: flex;
+    align-items: center;
+  }
+
+  .contenidocharacters {
+    display: flex;
+  }
+
+
+  .container {
+    background-image: url('./imagenes/fondoprueba.png');
+    background-color: rgba(20, 157, 130, 0.7);
+    background-size: contain;
+    width: 100%;
+    position: flex;
+    margin-left: 0px;
+  }
+
+  .menufiltradoytitulo {
+    display: flex;
+    flex-direction: column;
+    /* margin: auto; */
+    width: 80%;
+    gap: 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 240px;
+  }
+
+  .menufiltradoytitulo p {
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #2D1440;
+    text-align: center;
+    font-weight: bold;
+    background-color: #A3A3CD;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .botones {
+    display: flex;
+    margin: 0;
+    width: 80%;
+    gap: 20px 20px;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 120px; */
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+
+  /*BOTONES*/
+  /*BOTÓN FILTRADO*/
+  .imagenfiltrado {
+    background-color: #A3A3CD;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .imagenfiltrado img {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+  }
+
+  /*SUBMENU FILTRADO*/
+
+  .botonfiltrado>ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 100px;
+    top: 440px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 400ms ease;
+  }
+
+  .botonfiltrado:hover>ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 450px;
+  }
+
+  .botonfiltrado>ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 400ms ease;
+    text-align: center;
+  }
+
+  .botonfiltrado>ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  /*SUB SUBMENU GENDER*/
+
+  .gender ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 1px;
+    top: 210px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .gender:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 225px;
+  }
+
+  .gender ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    text-align: center;
+  }
+
+  .gender ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  /*BOTON ORDENADO*/
+  .imagenordenado {
+    background-color: #A3A3CD;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .imagenordenado img {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+  }
+
+  /*SUBMENU ORDENAR*/
+
+  .botonordenar ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7B2E73;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    right: 100px;
+    top: 440px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 80%;
+    z-index: 10;
+    transition: all 300ms ease;
+  }
+
+  .botonordenar:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 450px;
+  }
+
+  .botonordenar ul li a {
+    display: block;
+    color: #ffff;
+    padding: 6px;
+    padding-left: 0px;
+    margin: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    text-align: center;
+  }
+
+  .botonordenar ul li a:hover {
+    background: #A3A3CD;
+    border-radius: 10px;
+    color: #2D1440;
+    transform: sacle(1.1);
+    padding-left: 14px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  /*VENTANA MODAL*/
+  #root3 .contenedorVentanaModal {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 2rem; */
+    text-align: center;
+    font-size: 10px;
+    background: #ffff;
+    position: relative;
+    margin: 2rem;
+    width: 40rem;
+    border-radius: 1rem;
+  }
+
+  .iconoCerrarVM {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-top: 170px;
+  }
+
+  .iconoCerrarVM:hover {
+    transform: rotate(90deg);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #root3 .contenedorVentanaModal .imagenVentanaModal {
+    height: 20rem;
+    border-radius: 1rem;
+    margin-top: 12rem;
+  }
+
+  .nombreVentanaModal {
+    padding: 1 rem 0;
+    font: 2.5 rem;
+    color: #2D1440;
+  }
+
+  h2 {
+    display: block;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: #7B2E73;
+  }
+
+  .contenedorVentanaModal div {
+    display: block;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: #7B2E73;
+  }
+
+  .calculoVentanaModal {
+    font-size: 3 rem;
+    color: #7B2E73;
+  }
 }

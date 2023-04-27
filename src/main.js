@@ -1,9 +1,9 @@
 import data from './data/rickandmorty/rickandmorty.js';
-import { } from './data.js';
+import { funcionOrdenadoaZ, funcionOrdenadozA, filterGender, filterOrigen } from './data.js';
 import { navHeader, sideBar } from './contents.js';
 
-// eslint-disable-next-line no-console
-console.log(data);
+
+//console.log(data);
 
 // NAVEGADORES (HEADER y SIDEBAR)
 const navcontainer = document.createElement('div');
@@ -11,52 +11,104 @@ const maincontainer = document.createElement('div');
 const barralateral = document.querySelector('.barralateral');
 const barrasuperior = document.querySelector('.barrasuperior');
 
-
 navcontainer.innerHTML = navHeader;
 maincontainer.innerHTML = sideBar;
 barrasuperior.appendChild(navcontainer);
 barralateral.appendChild(maincontainer);
 
 //BOTONES DE FILTRADO Y ORDENADO
+const botonOrdenadoaZ = document.getElementById("aZ");
+const botonOrdenadozA = document.getElementById("zA");
+const botonFiltradoGenderFemale = document.getElementById("female");
+const botonFiltradoGenderMale = document.getElementById("male");
+
+botonOrdenadoaZ.addEventListener("click", () => {
+  limpiarContenedor()
+  const resultadosaZ = funcionOrdenadoaZ(resultados)
+  //console.log(resultadosaZ)
+  return mostrarPersonaje(resultadosaZ)
+})
+
+botonOrdenadozA.addEventListener("click", () => {
+  limpiarContenedor()
+  const resultadoszA = funcionOrdenadozA(resultados)
+  //console.log(resultadoszA)
+  return mostrarPersonaje(resultadoszA)
+})
+
+botonFiltradoGenderFemale.addEventListener("click", () => {
+  limpiarContenedor()
+  const resultadosFemale = filterGender(resultados, "Female")
+  console.log(resultadosFemale)
+  return mostrarPersonaje(resultadosFemale)
+})
+
+botonFiltradoGenderMale.addEventListener("click", () => {
+  limpiarContenedor()
+  const resultadosMale = filterGender(resultados, "Male")
+  //console.log(resultadosMale)
+  return mostrarPersonaje(resultadosMale)
+})
 
 
+//CALCULO AGREGADO
+const originName = data.results.flatMap(origen => origen.origin)
+//console.log(originName)
 
-// PERSONAJES
+function calculoAgregado() {
+  const tierra = "Earth (C-137)"
+  const resultadosLocation = filterOrigen(originName, tierra)
+  //console.log(resultadosLocation)
+  const resultadosLocationLength = resultadosLocation.length
+
+  const totalPersonajes = data.info.count
+  //console.log(totalPersonajes)
+
+  const resultadoCalculoAgregado = ((resultadosLocationLength / totalPersonajes) * 100)
+  return (Math.ceil(resultadoCalculoAgregado) + "%" + " of the characters come from " + tierra)
+
+}
+
+// FUNCION MOSTRAR PERSONAJES
 const contenedor = document.querySelector('#root2')
-// eslint-disable-next-line no-console
-console.log(contenedor);
-data.results.forEach(element => {
+const resultados = data.results
+//console.log(contenedor);
 
-  const containerpersonaje = document.createElement('div')
-  const imagen = document.createElement('img')
-  const nombre = document.createElement('p')
+function mostrarPersonaje(resultadosparametro) {
+  resultadosparametro.forEach((element => {
 
-  containerpersonaje.addEventListener('click', () => {
+    const containerpersonaje = document.createElement('div')
+    const imagen = document.createElement('img')
+    const nombre = document.createElement('p')
 
-    abrirModal(element)
-  })
+    //EVENTLISTENER PARA ABRIR VENTANA MODAL
+    containerpersonaje.addEventListener('click', () => {
+      abrirModal(element)
+    })
 
-  imagen.src = element.image
-  nombre.textContent = element.name
+    imagen.src = element.image
+    nombre.textContent = element.name
 
-  containerpersonaje.setAttribute("class", "containerPersonaje")
-  imagen.setAttribute("class", "imagenPersonaje")
-  nombre.setAttribute("class", "nombrePersonaje")
+    containerpersonaje.setAttribute("class", "containerPersonaje")
+    imagen.setAttribute("class", "imagenPersonaje")
+    nombre.setAttribute("class", "nombrePersonaje")
 
+    contenedor.appendChild(containerpersonaje)
+    containerpersonaje.appendChild(imagen)
+    containerpersonaje.appendChild(nombre)
+  }));
+}
 
-  contenedor.appendChild(containerpersonaje)
-  containerpersonaje.appendChild(imagen)
-  containerpersonaje.appendChild(nombre)
-});
+mostrarPersonaje(resultados);
 
+//VARIABLE PARA LIMPIAR VENTANA MODAL EN EL ESPACIO VACIO
 const ventanaModal = document.querySelector('#root3')
-ventanaModal.addEventListener("click",() => {
+ventanaModal.addEventListener("click", () => {
   ventanaModal.style.display = 'none'
   limpiarVentanaModal()
 });
- 
-// VENTANA MODAL
 
+// VENTANA MODAL
 function abrirModal(personaje) {
 
   const ventanaModal = document.querySelector('#root3')
@@ -73,7 +125,6 @@ function abrirModal(personaje) {
   const genderVentanaModal = document.createElement('h2')
   const originVentanaModal = document.createElement('h2')
   const locationVentanaModal = document.createElement('h2')
-  const episodesVentanaModal = document.createElement('h2')
 
   iconoCerrado.src = "../imagenes/iconocerrarventanamodal.png"
   imagenVentanaModal.src = personaje.image
@@ -84,9 +135,9 @@ function abrirModal(personaje) {
   genderVentanaModal.textContent = personaje.gender
   originVentanaModal.textContent = personaje.origin.name
   locationVentanaModal.textContent = personaje.location.name
-  episodesVentanaModal.length = personaje.episode
 
   ventanaModal.setAttribute("class", "ventanaModal")
+
   iconoCerrado.setAttribute("class", "iconoCerrarVM")
   contenedorVentanaModal.setAttribute("class", "contenedorVentanaModal active")
   imagenVentanaModal.setAttribute("class", "imagenVentanaModal")
@@ -94,10 +145,10 @@ function abrirModal(personaje) {
   statusVentanaModal.setAttribute("class", "datosVentanaModal")
   speciesVentanaModal.setAttribute("class", "datosVentanaModal")
   typeVentanaModal.setAttribute("class", "datosVentanaModal")
+
   genderVentanaModal.setAttribute("class", "datosVentanaModal")
   originVentanaModal.setAttribute("class", "datosVentanaModal")
   locationVentanaModal.setAttribute("class", "datosVentanaModal")
-  episodesVentanaModal.setAttribute("class", "datosVentanaModal")
 
   ventanaModal.appendChild(contenedorVentanaModal)
   contenedorVentanaModal.appendChild(iconoCerrado)
@@ -109,15 +160,28 @@ function abrirModal(personaje) {
   contenedorVentanaModal.appendChild(genderVentanaModal)
   contenedorVentanaModal.appendChild(originVentanaModal)
   contenedorVentanaModal.appendChild(locationVentanaModal)
-  contenedorVentanaModal.appendChild(episodesVentanaModal)
 
-  iconoCerrado.addEventListener('click',() => {
+  iconoCerrado.addEventListener('click', () => {
     limpiarVentanaModal()
   })
+
+  //CALCULO AGREGADO EN VENTANA MODAL
+  const seccionCalculoAgregado = document.createElement("div")
+  seccionCalculoAgregado.setAttribute("class", "calculoVentanaModal")
+  contenedorVentanaModal.appendChild(seccionCalculoAgregado)
+
+  seccionCalculoAgregado.textContent = calculoAgregado()
+
 }
 
-function limpiarVentanaModal (){
+//FUNCION PARA LIMPIAR VENTANA MODAL
+function limpiarVentanaModal() {
   const ventanaModal = document.querySelector('#root3')
-
   ventanaModal.innerHTML = ''
+}
+
+//FUNCION PARA LIMPIAR CONTENEDOR(ROOT2)
+function limpiarContenedor() {
+  const contenedor = document.querySelector('#root2')
+  contenedor.innerHTML = ""
 }
